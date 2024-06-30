@@ -24,5 +24,9 @@ namespace Repository
         {
             return ProductDAO.Instance.GetProductsByCategoryId(categoryId);
         }
+        public Product GetProductById(int productId)
+        {
+            return ProductDAO.Instance.GetProductById(productId);
+        }
     }
 }

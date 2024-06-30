@@ -13,5 +13,7 @@ namespace Service
         List<Product> GetProductsByCategoryId(int categoryId);
 
         List<Category> GetAllCategory();
+
+        public Product GetProductById(int productId);
     }
 }

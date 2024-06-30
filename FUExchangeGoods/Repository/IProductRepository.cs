@@ -12,5 +12,7 @@ namespace Repository
         List<Product> GetAllProducts();
         List<Product> GetProductsByCategoryId(int categoryId);
         List<Category> GetAllCategory();
+        Product GetProductById(int productId);
+
     }
 }

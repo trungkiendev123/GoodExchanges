@@ -1,0 +1,17 @@
+﻿@page "{productId:int}"
+@model FUExchangeClient.Pages.Guest.ProductDetailModel
+
+<h1>Product Details</h1>
+
+<div>
+    <h2>@Model.Product.Description</h2>
+    <p>Price: @Model.Product.Price</p>
+    <p>Category: @Model.Product.Category?.CategoryName</p>
+    <p>Posted: @Model.Product.DatePosted?.ToShortDateString()</p>
+    <img src="@Model.Product.Image" alt="Product Image" />
+
+    <h3>Seller Information</h3>
+    <p>Name: @Model.Seller.FirstName @Model.Seller.LastName</p>
+    <p>Email: @Model.Seller.Account?.Email</p>
+    <p>Address: @Model.Seller.Address</p>
+</div>

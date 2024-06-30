@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAO", "DAO\DAO.csproj", "{C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FUExchangeClient", "FUExchangeClient\FUExchangeClient.csproj", "{2ECEC177-3594-421A-8340-24B4C3EDAB1B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service", "Service\Service.csproj", "{55BB5F1E-FA12-40FE-B7D7-EA06423A5CE9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Service", "Service\Service.csproj", "{55BB5F1E-FA12-40FE-B7D7-EA06423A5CE9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

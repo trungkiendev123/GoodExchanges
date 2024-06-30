@@ -30,5 +30,9 @@ namespace Service
         {
             return _repository.GetProductsByCategoryId(categoryId);
         }
+        public Product GetProductById(int productId)
+        {
+            return _repository.GetProductById(productId);
+        }
     }
 }

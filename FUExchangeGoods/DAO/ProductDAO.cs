@@ -1,4 +1,5 @@
-﻿using Models.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using Models.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -76,6 +77,25 @@ namespace DAO
                 throw new Exception("Error retrieving products by category from database.", ex);
             }
             return products;
+        }
+        public Product GetProductById(int productId)
+        {
+            Product product = null;
+            try
+            {
+                using (var context = new FUExchangeGoodsContext())
+                {
+                    product = context.Products
+                                    .Include(p => p.Seller)
+                                    .ThenInclude(s => s.User)
+                                    .FirstOrDefault(p => p.ProductId == productId);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error retrieving product by ID from database.", ex);
+            }
+            return product;
         }
     }
 }
