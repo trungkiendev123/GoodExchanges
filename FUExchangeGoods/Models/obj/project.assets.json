@@ -1980,11 +1980,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\SHD\\source\\repos\\FUExchangeGoods\\Models\\Models.csproj",
+      "projectUniqueName": "C:\\Users\\SHD\\Desktop\\Goods\\GoodExchanges\\FUExchangeGoods\\Models\\Models.csproj",
       "projectName": "Models",
-      "projectPath": "C:\\Users\\SHD\\source\\repos\\FUExchangeGoods\\Models\\Models.csproj",
+      "projectPath": "C:\\Users\\SHD\\Desktop\\Goods\\GoodExchanges\\FUExchangeGoods\\Models\\Models.csproj",
       "packagesPath": "C:\\Users\\SHD\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\SHD\\source\\repos\\FUExchangeGoods\\Models\\obj\\",
+      "outputPath": "C:\\Users\\SHD\\Desktop\\Goods\\GoodExchanges\\FUExchangeGoods\\Models\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\SHD\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "36ZW3KfvnPY4O9XECKcF6Iiu8FyBb3is4PCxityzJeN0K9LULVFtsIzZ9JD4YxTRvmn2H4lcRv0FTJE3ZclMRA==",
+  "dgSpecHash": "4b19W8+xyLyIZCEB+1H24rguL6DFj1DID5F9xVldMTruipABzd8QgnxxfHeEjx2GIqvf2OP1C2/mG0D6tEn1xA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\SHD\\source\\repos\\FUExchangeGoods\\Repository\\Repository.csproj",
+  "projectFilePath": "C:\\Users\\SHD\\Desktop\\Goods\\GoodExchanges\\FUExchangeGoods\\Repository\\Repository.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\SHD\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\SHD\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.7\\microsoft.data.sqlclient.2.1.7.nupkg.sha512",

@@ -85,7 +85,7 @@ namespace DAO
             {
                 using (var context = new FUExchangeGoodsContext())
                 {
-                    product = context.Products
+                    product = context.Products.Include(p => p.Category)
                                     .Include(p => p.Seller)
                                     .ThenInclude(s => s.User)
                                     .FirstOrDefault(p => p.ProductId == productId);

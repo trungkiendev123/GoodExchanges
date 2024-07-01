@@ -1952,11 +1952,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\SHD\\source\\repos\\FUExchangeGoods\\Repository\\Repository.csproj",
+      "projectUniqueName": "C:\\Users\\SHD\\Desktop\\Goods\\GoodExchanges\\FUExchangeGoods\\Repository\\Repository.csproj",
       "projectName": "Repository",
-      "projectPath": "C:\\Users\\SHD\\source\\repos\\FUExchangeGoods\\Repository\\Repository.csproj",
+      "projectPath": "C:\\Users\\SHD\\Desktop\\Goods\\GoodExchanges\\FUExchangeGoods\\Repository\\Repository.csproj",
       "packagesPath": "C:\\Users\\SHD\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\SHD\\source\\repos\\FUExchangeGoods\\Repository\\obj\\",
+      "outputPath": "C:\\Users\\SHD\\Desktop\\Goods\\GoodExchanges\\FUExchangeGoods\\Repository\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\SHD\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -1973,11 +1973,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\SHD\\source\\repos\\FUExchangeGoods\\DAO\\DAO.csproj": {
-              "projectPath": "C:\\Users\\SHD\\source\\repos\\FUExchangeGoods\\DAO\\DAO.csproj"
+            "C:\\Users\\SHD\\Desktop\\Goods\\GoodExchanges\\FUExchangeGoods\\DAO\\DAO.csproj": {
+              "projectPath": "C:\\Users\\SHD\\Desktop\\Goods\\GoodExchanges\\FUExchangeGoods\\DAO\\DAO.csproj"
             },
-            "C:\\Users\\SHD\\source\\repos\\FUExchangeGoods\\Models\\Models.csproj": {
-              "projectPath": "C:\\Users\\SHD\\source\\repos\\FUExchangeGoods\\Models\\Models.csproj"
+            "C:\\Users\\SHD\\Desktop\\Goods\\GoodExchanges\\FUExchangeGoods\\Models\\Models.csproj": {
+              "projectPath": "C:\\Users\\SHD\\Desktop\\Goods\\GoodExchanges\\FUExchangeGoods\\Models\\Models.csproj"
             }
           }
         }

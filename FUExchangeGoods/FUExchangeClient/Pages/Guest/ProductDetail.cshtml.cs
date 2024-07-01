@@ -17,10 +17,11 @@ namespace FUExchangeClient.Pages.Guest
         public Product Product { get; set; }
         public User Seller { get; set; }
 
-        public void OnGet(int productId)
+        public IActionResult OnGet(int id)
         {
-            Product = _productService.GetProductById(productId);
+            Product = _productService.GetProductById(id);
             Seller = Product.Seller.User;
+            return Page();
         }
     }
 }

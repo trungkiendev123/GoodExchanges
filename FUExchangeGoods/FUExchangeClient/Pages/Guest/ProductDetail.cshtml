@@ -1,17 +1,62 @@
-﻿@page "{productId:int}"
+﻿@page 
 @model FUExchangeClient.Pages.Guest.ProductDetailModel
 
-<h1>Product Details</h1>
+<h1 class="my-4">Product Details</h1>
 
-<div>
-    <h2>@Model.Product.Description</h2>
-    <p>Price: @Model.Product.Price</p>
-    <p>Category: @Model.Product.Category?.CategoryName</p>
-    <p>Posted: @Model.Product.DatePosted?.ToShortDateString()</p>
-    <img src="@Model.Product.Image" alt="Product Image" />
+<div class="card mb-4">
+    <img class="card-img-top img-fluid" src="@Model.Product.Image" alt="Product Image" style="width:250px;height:250px">
+    <div class="card-body">
+        <h2 class="card-title">@Model.Product.Description</h2>
+        <p class="card-text"><strong>Price:</strong> @Model.Product.Price</p>
+        <p class="card-text"><strong>Category:</strong> @Model.Product.Category?.CategoryName</p>
+        <p class="card-text"><strong>Posted:</strong> @Model.Product.DatePosted?.ToShortDateString()</p>
+        
+        <!-- Quantity controls -->
+        <div class="form-group">
+            <label for="quantity">Quantity</label>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <button class="btn btn-outline-secondary" type="button" id="decreaseBtn">-</button>
+                </div>
+                <input type="text" class="form-control text-center" id="quantity" value="1" readonly>
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button" id="increaseBtn">+</button>
+                </div>
+            </div>
+        </div>
 
-    <h3>Seller Information</h3>
-    <p>Name: @Model.Seller.FirstName @Model.Seller.LastName</p>
-    <p>Email: @Model.Seller.Account?.Email</p>
-    <p>Address: @Model.Seller.Address</p>
+        <button class="btn btn-primary" id="addToCartBtn">Add to Cart</button>
+    </div>
 </div>
+
+<h3 class="my-4">Seller Information</h3>
+<div class="card">
+    <div class="card-body">
+        <p class="card-text"><strong>Name:</strong> @Model.Seller.FirstName @Model.Seller.LastName</p>
+        <p class="card-text"><strong>Address:</strong> @Model.Seller.Address</p>
+    </div>
+</div>
+@section Scripts {
+        <script>
+            document.getElementById('decreaseBtn').addEventListener('click', function() {
+                var quantityInput = document.getElementById('quantity');
+                var currentQuantity = parseInt(quantityInput.value);
+                if (currentQuantity > 1) {
+                    quantityInput.value = currentQuantity - 1;
+                }
+            });
+
+            document.getElementById('increaseBtn').addEventListener('click', function() {
+                var quantityInput = document.getElementById('quantity');
+                var currentQuantity = parseInt(quantityInput.value);
+                quantityInput.value = currentQuantity + 1;
+            });
+
+            document.getElementById('addToCartBtn').addEventListener('click', function() {
+                var quantity = document.getElementById('quantity').value;
+                var productId = @Model.Product.ProductId;
+                console.log(`Product ID: ${productId}, Quantity: ${quantity}`);
+                alert(`Product added to cart: ${productId}, Quantity: ${quantity}`);
+            });
+        </script>
+}
