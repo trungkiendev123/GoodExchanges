@@ -16,6 +16,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\SHD\Desktop\Goods\GoodExchanges\FUExchangeGoods\FUExchangeClient
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/SHD/Desktop/Goods/GoodExchanges/FUExchangeGoods/FUExchangeClient/Pages/Buyer/ShowCart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQnV5ZXJcU2hvd0NhcnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/SHD/Desktop/Goods/GoodExchanges/FUExchangeGoods/FUExchangeClient/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

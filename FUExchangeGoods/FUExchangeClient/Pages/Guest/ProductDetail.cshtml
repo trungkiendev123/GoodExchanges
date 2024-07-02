@@ -2,7 +2,12 @@
 @model FUExchangeClient.Pages.Guest.ProductDetailModel
 
 <h1 class="my-4">Product Details</h1>
-
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success" id="successMessage">
+        @TempData["SuccessMessage"]
+    </div>
+}
 <div class="card mb-4">
     <img class="card-img-top img-fluid" src="@Model.Product.Image" alt="Product Image" style="width:250px;height:250px">
     <div class="card-body">
@@ -10,22 +15,24 @@
         <p class="card-text"><strong>Price:</strong> @Model.Product.Price</p>
         <p class="card-text"><strong>Category:</strong> @Model.Product.Category?.CategoryName</p>
         <p class="card-text"><strong>Posted:</strong> @Model.Product.DatePosted?.ToShortDateString()</p>
-        
-        <!-- Quantity controls -->
-        <div class="form-group">
-            <label for="quantity">Quantity</label>
-            <div class="input-group">
-                <div class="input-group-prepend">
-                    <button class="btn btn-outline-secondary" type="button" id="decreaseBtn">-</button>
-                </div>
-                <input type="text" class="form-control text-center" id="quantity" value="1" readonly>
-                <div class="input-group-append">
-                    <button class="btn btn-outline-secondary" type="button" id="increaseBtn">+</button>
+        <form method="post" asp-page-handler="AddToCart">
+            <div class="form-group">
+                <label for="quantity">Quantity</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <button class="btn btn-outline-secondary" type="button" id="decreaseBtn">-</button>
+                    </div>
+                    <input type="text" class="form-control text-center" name="quantity" id="quantity" value="1" readonly>
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="button" id="increaseBtn">+</button>
+                    </div>
                 </div>
             </div>
-        </div>
-
-        <button class="btn btn-primary" id="addToCartBtn">Add to Cart</button>
+            <input type="hidden" name="productId" value="@Model.Product.ProductId" />
+            <button type="submit" class="btn btn-primary">Add to Cart</button>
+        </form>
+        <!-- Quantity controls -->
+        
     </div>
 </div>
 
@@ -51,12 +58,15 @@
                 var currentQuantity = parseInt(quantityInput.value);
                 quantityInput.value = currentQuantity + 1;
             });
+        window.onload = function () {
+            var successMessage = document.getElementById('successMessage');
+            if (successMessage) {
+                setTimeout(function () {
+                    successMessage.style.display = 'none';
+                }, 2000); // 1000 milliseconds = 1 second
+            }
+        };
 
-            document.getElementById('addToCartBtn').addEventListener('click', function() {
-                var quantity = document.getElementById('quantity').value;
-                var productId = @Model.Product.ProductId;
-                console.log(`Product ID: ${productId}, Quantity: ${quantity}`);
-                alert(`Product added to cart: ${productId}, Quantity: ${quantity}`);
-            });
+            
         </script>
 }
