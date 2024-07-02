@@ -55,15 +55,27 @@
                             <input type="password" asp-for="account.Password" required>
                         </div>
                         <div class="form-group">
-                            <label>Phone</label>
-                            <input type="text" asp-for="account.Email" required>
+                            <label>Email</label>
+                            <input type="email" asp-for="account.Email" required>
                         </div>
                         <div class="form-group">
                             <label>Role</label>
-                            <select asp-for="account.Role">
+                            <select asp-for="account.Role" class="form-control">
                                 <option value="1">Buyer</option>
                                 <option value="2">Seller</option>
                             </select>
+                        </div>
+                        <div class="form-group">
+                            <label>First Name</label>
+                            <input type="text" asp-for="user.FirstName" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Last Name</label>
+                            <input type="text" asp-for="user.LastName" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Address</label>
+                            <input type="text" asp-for="user.Address" required>
                         </div>
 
                         <div class="form-group text-right">

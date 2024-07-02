@@ -114,7 +114,7 @@ namespace DAO
             return accounts;
 
         }
-        public void Add(Account account)
+        public void Add(Account account, User user)
         {
             try
             {
@@ -124,6 +124,9 @@ namespace DAO
                     using (var MySale = new FUExchangeGoodsContext())
                     {
                         MySale.Accounts.Add(account);
+                        MySale.SaveChanges();
+                        user.AccountId = account.AccountId;
+                        MySale.Users.Add(user);
                         MySale.SaveChanges();
                     }
 
@@ -162,5 +165,6 @@ namespace DAO
                 throw new Exception(e.Message);
             }
         }
+
     }
 }

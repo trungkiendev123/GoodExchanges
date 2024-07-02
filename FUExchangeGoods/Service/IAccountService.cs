@@ -14,7 +14,7 @@ namespace Service
 
         Account Get(int id);
 
-        public void Add(Account account);
+        public void Add(Account account,User user);
 
         public Account GetByID(int id);
 

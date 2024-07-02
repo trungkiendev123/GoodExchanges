@@ -9,10 +9,12 @@ namespace FUExchangeClient.Pages
     public class LoginModel : PageModel
     {
         private readonly IAccountService service;
+        private readonly ICartService serviceCart;
 
         public LoginModel()
         {
             service = new AccountService();
+            serviceCart = new CartService();
         }
         public IActionResult OnGetAsync()
         {
@@ -25,6 +27,9 @@ namespace FUExchangeClient.Pages
 
         [BindProperty]
         public Account account { get; set; } = default!;
+
+        [BindProperty]
+        public User user { get; set; } = default!;
 
         public IActionResult OnPostAsync()
         {
@@ -42,7 +47,7 @@ namespace FUExchangeClient.Pages
                 HttpContext.Session.SetInt32("role", (int)account.Role);
                 if (account.Role == 0)
                 {
-                    return RedirectToPage("/Index");
+                    return RedirectToPage("/Guest/ProductList");
                 }
                 else
                 {
@@ -69,7 +74,8 @@ namespace FUExchangeClient.Pages
             success = "Register successfully";
             account.Status = 1;
             account.Role = 0;
-            service.Add(account);
+            service.Add(account,user);
+            serviceCart.CreateCart(user.UserId);
 
             return Page();
 

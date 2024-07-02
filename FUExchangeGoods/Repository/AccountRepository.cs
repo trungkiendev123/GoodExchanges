@@ -20,7 +20,7 @@ namespace Repository
 
         public List<Account> ListAdmin() => AccountDAO.Instance.ListAdmin();
 
-        public void Add(Account account) => AccountDAO.Instance.Add(account);
+        public void Add(Account account,User user) => AccountDAO.Instance.Add(account, user);
 
 
         public void Update(Account account) => AccountDAO.Instance.Update(account);

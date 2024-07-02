@@ -30,7 +30,7 @@ namespace Service
         public List<Account> ListAdmin() => _repository.ListAdmin();
 
 
-        public void Add(Account account) => _repository.Add(account);
+        public void Add(Account account, User user) => _repository.Add(account,user);
 
         public void Update(Account account) => _repository.Update(account);
 

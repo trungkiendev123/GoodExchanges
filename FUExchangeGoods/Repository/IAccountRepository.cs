@@ -17,7 +17,7 @@ namespace Repository
 
         Account Get(int id);
 
-        void Add(Account account);
+        void Add(Account account, User user);
         void Update(Account account);
 
         List<Account> ListAdmin();

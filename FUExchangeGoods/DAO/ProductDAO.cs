@@ -11,7 +11,7 @@ namespace DAO
     public class ProductDAO
     {
         private static ProductDAO instance = null;
-        private static readonly object instanceLock = new object();
+        private static readonly object instanceLock =  new object();
         private ProductDAO() { }
 
         public static ProductDAO Instance
