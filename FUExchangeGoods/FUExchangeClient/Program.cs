@@ -9,7 +9,9 @@ builder.Services.AddRazorPages();
 builder.Services.AddDbContext<FUExchangeGoodsContext>(option => option.UseSqlServer(builder.Configuration.GetConnectionString("SqlConnection")));
 builder.Services.AddScoped<FUExchangeGoodsContext>();
 builder.Services.AddScoped<IProductService,ProductService>();
+builder.Services.AddScoped<IAccountService, AccountService>();
 builder.Services.AddScoped<ICartService, CartService>();
+builder.Services.AddScoped<IOrderService, OrderService>();
 builder.Services.AddSession(options =>
 {
     options.IdleTimeout = TimeSpan.FromMinutes(5);

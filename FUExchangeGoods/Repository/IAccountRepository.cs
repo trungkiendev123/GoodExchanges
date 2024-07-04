@@ -21,5 +21,7 @@ namespace Repository
         void Update(Account account);
 
         List<Account> ListAdmin();
+
+        public Buyer GetBuyerByUserID(int id);
     }
 }

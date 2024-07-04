@@ -21,6 +21,7 @@ namespace Models.Models
         public virtual DbSet<Cart> Carts { get; set; } = null!;
         public virtual DbSet<CartItem> CartItems { get; set; } = null!;
         public virtual DbSet<Category> Categories { get; set; } = null!;
+        public virtual DbSet<Contact> Contacts { get; set; } = null!;
         public virtual DbSet<Order> Orders { get; set; } = null!;
         public virtual DbSet<Product> Products { get; set; } = null!;
         public virtual DbSet<Report> Reports { get; set; } = null!;
@@ -97,6 +98,20 @@ namespace Models.Models
                 entity.ToTable("Category");
 
                 entity.Property(e => e.CategoryId).HasColumnName("CategoryID");
+            });
+
+            modelBuilder.Entity<Contact>(entity =>
+            {
+                entity.ToTable("Contact");
+
+                entity.Property(e => e.Id).HasColumnName("id");
+
+                entity.Property(e => e.Message).HasColumnType("text");
+
+                entity.HasOne(d => d.UserSendNavigation)
+                    .WithMany(p => p.Contacts)
+                    .HasForeignKey(d => d.UserSend)
+                    .HasConstraintName("FK__Contact__UserSen__72C60C4A");
             });
 
             modelBuilder.Entity<Order>(entity =>

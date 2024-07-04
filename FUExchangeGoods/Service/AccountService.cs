@@ -38,5 +38,9 @@ namespace Service
         {
             return _repository.GetByID(id);
         }
+        public Buyer GetBuyerByUserID(int id)
+        {
+            return _repository.GetBuyerByUserID(id);
+        }
     }
 }

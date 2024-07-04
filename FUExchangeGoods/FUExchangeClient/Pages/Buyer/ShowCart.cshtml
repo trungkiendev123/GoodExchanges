@@ -34,7 +34,7 @@
                     <td><img style="width:250px;height250px;" src="@item.Product.Image" /></td>
                     <td>
                         <div class="form-group">
-                            <input type="number" name="quantity" value="@item.Quantity" class="form-control" form="form-@item.CartItemId" />
+                            <input type="number" name="quantity" value="@item.Quantity" class="form-control" disabled form="form-@item.CartItemId" />
                             <input type="hidden" name="cartItemId" value="@item.CartItemId" form="form-@item.CartItemId" />
                         </div>
                     </td>
@@ -42,9 +42,9 @@
                     <td>@(item.Product.Price * item.Quantity)</td>
                     <td>
                         <div class="btn-group" role="group">
-                            <form method="post" asp-page-handler="UpdateCart" id="form-@item.CartItemId" class="d-inline">
+                            <form method="post" asp-page-handler="OrderCart" id="form-@item.CartItemId" class="d-inline">
                                 <input type="hidden" name="cartItemId" value="@item.CartItemId" />
-                                <button type="submit" class="btn btn-primary">Update</button>
+                                <button type="submit" class="btn btn-primary">Order</button>
                             </form>
                             <form method="post" asp-page-handler="DeleteCartItem" class="d-inline">
                                 <input type="hidden" name="cartItemId" value="@item.CartItemId" />

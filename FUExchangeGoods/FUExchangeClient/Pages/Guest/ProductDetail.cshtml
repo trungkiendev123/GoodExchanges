@@ -19,13 +19,7 @@
             <div class="form-group">
                 <label for="quantity">Quantity</label>
                 <div class="input-group">
-                    <div class="input-group-prepend">
-                        <button class="btn btn-outline-secondary" type="button" id="decreaseBtn">-</button>
-                    </div>
-                    <input type="text" class="form-control text-center" name="quantity" id="quantity" value="1" readonly>
-                    <div class="input-group-append">
-                        <button class="btn btn-outline-secondary" type="button" id="increaseBtn">+</button>
-                    </div>
+                    <input type="text" class="form-control text-center" name="quantity" id="quantity" value="@Model.Product.Quantity" readonly>
                 </div>
             </div>
             <input type="hidden" name="productId" value="@Model.Product.ProductId" />

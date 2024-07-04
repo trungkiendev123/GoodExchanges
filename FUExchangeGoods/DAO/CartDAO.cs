@@ -55,7 +55,7 @@ namespace DAO
                 using (var context = new FUExchangeGoodsContext())
                 {
                     cartItems = context.CartItems
-                        .Include(c => c.Product)
+                        .Include(c => c.Product).ThenInclude(x => x.Seller)
                         .Include(c => c.Cart)
                         .Where(c => c.Cart.UserId == userId).ToList();
                 }
@@ -84,17 +84,12 @@ namespace DAO
                     var cartItem = context.CartItems.FirstOrDefault(ci => ci.CartId == cart.CartId && ci.ProductId == productId);
                     if (cartItem == null)
                     {
-                        cartItem = new CartItem
+                        context.CartItems.Add(new CartItem
                         {
                             CartId = cart.CartId,
                             ProductId = productId,
                             Quantity = quantity
-                        };
-                        context.CartItems.Add(cartItem);
-                    }
-                    else
-                    {
-                        cartItem.Quantity += quantity;
+                        });
                     }
                     context.SaveChanges();
                 }
@@ -142,6 +137,14 @@ namespace DAO
             catch (Exception ex)
             {
                 throw new Exception("Error deleting cart item from database.", ex);
+            }
+        }
+        
+        public CartItem GetCartItemById(int cartItemId)
+        {
+            using (var context = new FUExchangeGoodsContext())
+            {
+                return context.CartItems.Include(x => x.Product).ThenInclude(x => x.Seller).FirstOrDefault(ci => ci.CartItemId == cartItemId);
             }
         }
     }

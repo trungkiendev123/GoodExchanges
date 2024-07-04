@@ -41,5 +41,11 @@ namespace Service
         {
             _repository.DeleteCartItem(cartItemId);
         }
+
+        
+        public CartItem GetCartItemById(int cartItemId)
+        {
+            return _repository.GetCartItemById(cartItemId);
+        }
     }
 }

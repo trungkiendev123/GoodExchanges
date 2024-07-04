@@ -33,5 +33,11 @@ namespace Repository
         {
             CartDAO.Instance.DeleteCartItem(cartItemId);
         }
+
+       
+        public CartItem GetCartItemById(int cartItemId)
+        {
+            return CartDAO.Instance.GetCartItemById(cartItemId);
+        }
     }
 }

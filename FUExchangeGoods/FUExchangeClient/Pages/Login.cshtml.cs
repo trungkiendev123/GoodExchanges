@@ -73,7 +73,6 @@ namespace FUExchangeClient.Pages
             }
             success = "Register successfully";
             account.Status = 1;
-            account.Role = 0;
             service.Add(account,user);
             serviceCart.CreateCart(user.UserId);
 

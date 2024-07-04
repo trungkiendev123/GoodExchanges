@@ -9,7 +9,7 @@ namespace FUExchangeClient.Pages
         {
             HttpContext.Session.Remove("role");
             HttpContext.Session.Remove("user_id");
-            return RedirectToPage("/Index");
+            return RedirectToPage("/Guest/ProductList");
         }
     }
 }

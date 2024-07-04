@@ -9,6 +9,7 @@ namespace Models.Models
         {
             Buyers = new HashSet<Buyer>();
             Carts = new HashSet<Cart>();
+            Contacts = new HashSet<Contact>();
             Sellers = new HashSet<Seller>();
         }
 
@@ -21,6 +22,7 @@ namespace Models.Models
         public virtual Account? Account { get; set; }
         public virtual ICollection<Buyer> Buyers { get; set; }
         public virtual ICollection<Cart> Carts { get; set; }
+        public virtual ICollection<Contact> Contacts { get; set; }
         public virtual ICollection<Seller> Sellers { get; set; }
     }
 }

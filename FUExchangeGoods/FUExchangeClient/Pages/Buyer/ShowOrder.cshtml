@@ -1,0 +1,59 @@
+﻿@page
+@model FUExchangeClient.Pages.Buyer.ShowOrderModel
+@{
+    ViewData["Title"] = "Your Orders";
+}
+
+<h2>Your Orders</h2>
+
+@if (Model.Orders != null && Model.Orders.Count > 0)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Product Image</th>
+                <th>Quantity</th>
+                <th>Unit Price</th>
+                <th>Total Price</th>
+                <th>Seller</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var order in Model.Orders)
+            {
+                <tr>
+                    <td><img src="@order.Product.Image" style="width: 100px; height: 100px;" /></td>
+                    <td>@order.Quantity</td>
+                    <td>@order.Product.Price</td>
+                    <td>@(order.Quantity * order.Product.Price)</td>
+                    <td>@order.Seller.User.FirstName @order.Seller.User.LastName</td>
+                    <td>@GetStatusText((int)order.Transaction.Status)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>You haven't placed any orders yet.</p>
+}
+
+@functions {
+    public string GetStatusText(int status)
+    {
+        switch (status)
+        {
+            case 0:
+                return "Pending";
+            case 1:
+                return "Shipping";
+            case 2:
+                return "Cancelled";
+            case 3:
+                return "Done";
+            default:
+                return "Unknown";
+        }
+    }
+}

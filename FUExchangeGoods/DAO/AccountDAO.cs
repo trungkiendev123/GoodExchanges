@@ -95,6 +95,22 @@ namespace DAO
             }
             return account;
         }
+        public Buyer GetBuyerByUserID(int id)
+        {
+            Buyer buyer = null;
+            try
+            {
+                using (var MySale = new FUExchangeGoodsContext())
+                {
+                    buyer = MySale.Buyers.SingleOrDefault(x => x.UserId == id);
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+            return buyer;
+        }
 
         public List<Account> ListAdmin()
         {
@@ -127,6 +143,20 @@ namespace DAO
                         MySale.SaveChanges();
                         user.AccountId = account.AccountId;
                         MySale.Users.Add(user);
+                        MySale.SaveChanges();
+                        if(account.Role == 0)
+                        {
+                            Buyer buyer = new Buyer();
+                            buyer.UserId = user.UserId;
+                            MySale.Buyers.Add(buyer);
+                        }
+                        else
+                        {
+                            Seller seller = new Seller();
+                            seller.UserId = user.UserId;
+                            MySale.Sellers.Add(seller);
+
+                        }
                         MySale.SaveChanges();
                     }
 
