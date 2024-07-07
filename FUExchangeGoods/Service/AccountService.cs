@@ -15,6 +15,38 @@ namespace Service
         {
             _repository = new AccountRepository();
         }
+        public List<Account> GetAllAccounts()
+        {
+            return _repository.GetAllAccounts();
+        }
+        public void UpdateAccount(Account account) {
+            _repository.Update(account);
+
+        }
+
+        public List<Account> GetActiveAccounts()
+        {
+            return _repository.GetActiveAccounts();
+        }
+
+        public List<Account> GetBannedAccounts()
+        {
+            return _repository.GetBannedAccounts();
+        }
+
+        public void EditAccount(Account account)
+        {
+            _repository.EditAccount(account);
+        }
+        public void ActiveAccount(int accountId)
+        {
+            _repository.ActiveAccount(accountId);
+        }
+
+        public void BanAccount(int accountId)
+        {
+            _repository.BanAccount(accountId);
+        }
         public Account getByNameAndPass(string username, string password)
         {
             return _repository.getByNameAndPass(username, password);

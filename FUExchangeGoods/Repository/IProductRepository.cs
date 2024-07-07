@@ -9,10 +9,17 @@ namespace Repository
 {
     public interface IProductRepository
     {
+        Category GetCategoryById(int id);
+        void AddCategory(Category category);
+        void UpdateCategory(Category category);
         List<Product> GetAllProducts();
         List<Product> GetProductsByCategoryId(int categoryId);
         List<Category> GetAllCategory();
         Product GetProductById(int productId);
+        List<Product> GetAllProducts(int pageIndex, int pageSize);
+        void AddProduct(Product product);
+        void UpdateProduct(Product product);
+        void ChangeProductStatus(int productId, int status);
 
     }
 }

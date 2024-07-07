@@ -11,5 +11,6 @@ namespace Service
     {
         void CreateTransactionAndOrder(int buyerId, int sellerId, int productId, int quantity);
         List<Order> GetOrdersByUserId(int userId);
+        public int getTransactionByStatus(int status);
     }
 }

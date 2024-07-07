@@ -26,5 +26,9 @@ namespace Service
         {
             return _repository.GetOrdersByUserId(userId);
         }
+        public int getTransactionByStatus(int status)
+        {
+            return _repository.getTransactionByStatus(status);
+        }
     }
 }

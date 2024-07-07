@@ -184,8 +184,6 @@ namespace Models.Models
 
                 entity.Property(e => e.BuyerId).HasColumnName("BuyerID");
 
-                entity.Property(e => e.Description).HasColumnType("text");
-
                 entity.Property(e => e.ReportDate).HasColumnType("date");
 
                 entity.Property(e => e.SellerId).HasColumnName("SellerID");
@@ -247,9 +245,12 @@ namespace Models.Models
             {
                 entity.ToTable("User");
 
+                entity.HasIndex(e => e.AccountId, "UK_AccountId")
+                    .IsUnique();
+
                 entity.HasOne(d => d.Account)
-                    .WithMany(p => p.Users)
-                    .HasForeignKey(d => d.AccountId)
+                    .WithOne(p => p.User)
+                    .HasForeignKey<User>(d => d.AccountId)
                     .HasConstraintName("FK__User__AccountId__267ABA7A");
             });
 

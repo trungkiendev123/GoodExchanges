@@ -10,6 +10,9 @@ namespace Repository
 {
     public class ProductRepository : IProductRepository
     {
+        public Category GetCategoryById(int id) => ProductDAO.Instance.GetCategoryById(id);
+        public void AddCategory(Category category) => ProductDAO.Instance.AddCategory(category);
+        public void UpdateCategory(Category category) => ProductDAO.Instance.UpdateCategory(category);
         public List<Category> GetAllCategory()
         {
             return ProductDAO.Instance.GetAllCategory();
@@ -28,5 +31,9 @@ namespace Repository
         {
             return ProductDAO.Instance.GetProductById(productId);
         }
+        public List<Product> GetAllProducts(int pageIndex, int pageSize) => ProductDAO.Instance.GetAllProducts(pageIndex, pageSize);
+        public void AddProduct(Product product) => ProductDAO.Instance.AddProduct(product);
+        public void UpdateProduct(Product product) => ProductDAO.Instance.UpdateProduct(product);
+        public void ChangeProductStatus(int productId, int status) => ProductDAO.Instance.ChangeProductStatus(productId, status);
     }
 }

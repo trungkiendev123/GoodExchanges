@@ -28,7 +28,14 @@ namespace DAO
                 }
             }
         }
-        
+
+        public int getTransactionByStatus(int status)
+        {
+            using (var context = new FUExchangeGoodsContext())
+            {
+                return context.Transactions.Where(x => x.Status == status).Count();
+            }
+        }
         public void CreateTransactionAndOrder(int buyerId, int sellerId, int productId, int quantity)
         {
             using (var context = new FUExchangeGoodsContext())

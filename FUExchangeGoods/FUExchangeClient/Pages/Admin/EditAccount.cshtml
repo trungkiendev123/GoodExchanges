@@ -1,0 +1,51 @@
+﻿@page
+@model FUExchangeClient.Pages.Admin.EditAccountModel
+@{
+}
+<h1>Edit Account</h1>
+
+<form method="post">
+    <input asp-for="Account.AccountId" class="form-control" type="hidden"/>
+    <input asp-for="Account.Username" class="form-control" type="hidden" />
+    <div class="form-group">
+        <label asp-for="Account.Username"></label>
+        <input asp-for="Account.Username" class="form-control" disabled />
+        <span asp-validation-for="Account.Username" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Account.Password"></label>
+        <input asp-for="Account.Password" class="form-control" required />
+        <span asp-validation-for="Account.Password" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Account.Email"></label>
+        <input asp-for="Account.Email" class="form-control" required />
+        <span asp-validation-for="Account.Email" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label>Role</label>
+        <select asp-for="Account.Role" class="form-control">
+            <option value="0">Buyer</option>
+            <option value="1">Seller</option>
+            <option value="2">Admin</option>
+            <option value="3">Moderator</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label asp-for="user.FirstName"></label>
+        <input asp-for="user.FirstName" class="form-control" required />
+        <span asp-validation-for="user.FirstName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="user.LastName"></label>
+        <input asp-for="user.LastName" class="form-control" required />
+        <span asp-validation-for="user.LastName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="user.Address"></label>
+        <input asp-for="user.Address" class="form-control" required />
+        <span asp-validation-for="user.Address" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Update</button>
+    <a asp-page="./Accounts" class="btn btn-secondary">Back to List</a>
+</form>

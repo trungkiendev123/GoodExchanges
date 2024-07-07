@@ -34,5 +34,13 @@ namespace Service
         {
             return _repository.GetProductById(productId);
         }
+        public List<Product> GetAllProducts(int pageIndex, int pageSize) => _repository.GetAllProducts(pageIndex, pageSize);
+        public void AddProduct(Product product) => _repository.AddProduct(product);
+        public void UpdateProduct(Product product) => _repository.UpdateProduct(product);
+        public void ChangeProductStatus(int productId, int status) => _repository.ChangeProductStatus(productId, status);
+        public Category GetCategoryById(int id) => _repository.GetCategoryById(id);
+        public void AddCategory(Category category) => _repository.AddCategory(category);
+        public void UpdateCategory(Category category) => _repository.UpdateCategory(category);
     }
 }
+

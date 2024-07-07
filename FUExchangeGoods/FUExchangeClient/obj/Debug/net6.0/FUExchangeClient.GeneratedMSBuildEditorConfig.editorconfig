@@ -16,6 +16,46 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\SHD\Desktop\Goods\GoodExchanges\FUExchangeGoods\FUExchangeClient
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/SHD/Desktop/Goods/GoodExchanges/FUExchangeGoods/FUExchangeClient/Pages/Admin/Accounts.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cQWNjb3VudHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/SHD/Desktop/Goods/GoodExchanges/FUExchangeGoods/FUExchangeClient/Pages/Admin/AddProduct.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cQWRkUHJvZHVjdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/SHD/Desktop/Goods/GoodExchanges/FUExchangeGoods/FUExchangeClient/Pages/Admin/Category.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cQ2F0ZWdvcnkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/SHD/Desktop/Goods/GoodExchanges/FUExchangeGoods/FUExchangeClient/Pages/Admin/CreateAccount.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cQ3JlYXRlQWNjb3VudC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/SHD/Desktop/Goods/GoodExchanges/FUExchangeGoods/FUExchangeClient/Pages/Admin/CreateCategory.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cQ3JlYXRlQ2F0ZWdvcnkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/SHD/Desktop/Goods/GoodExchanges/FUExchangeGoods/FUExchangeClient/Pages/Admin/Dashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cRGFzaGJvYXJkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/SHD/Desktop/Goods/GoodExchanges/FUExchangeGoods/FUExchangeClient/Pages/Admin/EditAccount.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cRWRpdEFjY291bnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/SHD/Desktop/Goods/GoodExchanges/FUExchangeGoods/FUExchangeClient/Pages/Admin/EditCategory.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cRWRpdENhdGVnb3J5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/SHD/Desktop/Goods/GoodExchanges/FUExchangeGoods/FUExchangeClient/Pages/Admin/EditProduct.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cRWRpdFByb2R1Y3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/SHD/Desktop/Goods/GoodExchanges/FUExchangeGoods/FUExchangeClient/Pages/Admin/Products.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cUHJvZHVjdHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/SHD/Desktop/Goods/GoodExchanges/FUExchangeGoods/FUExchangeClient/Pages/Buyer/Contact.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQnV5ZXJcQ29udGFjdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -50,6 +90,18 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/SHD/Desktop/Goods/GoodExchanges/FUExchangeGoods/FUExchangeClient/Pages/Logout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9nb3V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/SHD/Desktop/Goods/GoodExchanges/FUExchangeGoods/FUExchangeClient/Pages/Moderator/ModeAccount.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTW9kZXJhdG9yXE1vZGVBY2NvdW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/SHD/Desktop/Goods/GoodExchanges/FUExchangeGoods/FUExchangeClient/Pages/Moderator/ModeProduct.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTW9kZXJhdG9yXE1vZGVQcm9kdWN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/SHD/Desktop/Goods/GoodExchanges/FUExchangeGoods/FUExchangeClient/Pages/Moderator/Reports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTW9kZXJhdG9yXFJlcG9ydHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/SHD/Desktop/Goods/GoodExchanges/FUExchangeGoods/FUExchangeClient/Pages/Privacy.cshtml]

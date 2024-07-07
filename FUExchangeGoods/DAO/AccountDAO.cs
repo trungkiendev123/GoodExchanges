@@ -28,6 +28,120 @@ namespace DAO
 
             }
         }
+        public List<Account> GetAllAccounts()
+        {
+            List<Account> accounts = null;
+            try
+            {
+                using (var context = new FUExchangeGoodsContext())
+                {
+                    accounts = context.Accounts.OrderByDescending(X => X.AccountId).ToList();
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Error retrieving all accounts.", e);
+            }
+            return accounts;
+        }
+
+        public List<Account> GetActiveAccounts()
+        {
+            List<Account> accounts = null;
+            try
+            {
+                using (var context = new FUExchangeGoodsContext())
+                {
+                    accounts = context.Accounts.Where(a => a.Status == 1).ToList();
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Error retrieving active accounts.", e);
+            }
+            return accounts;
+        }
+
+        public List<Account> GetBannedAccounts()
+        {
+            List<Account> accounts = null;
+            try
+            {
+                using (var context = new FUExchangeGoodsContext())
+                {
+                    accounts = context.Accounts.Where(a => a.Status == 0).ToList();
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Error retrieving banned accounts.", e);
+            }
+            return accounts;
+        }
+
+        public void EditAccount(Account account)
+        {
+            try
+            {
+                using (var context = new FUExchangeGoodsContext())
+                {
+                    var existingAccount = context.Accounts.Find(account.AccountId);
+                    if (existingAccount != null)
+                    {
+                        existingAccount.Username = account.Username;
+                        existingAccount.Password = account.Password;
+                        existingAccount.Email = account.Email;
+                        existingAccount.Status = account.Status;
+                        existingAccount.Role = account.Role;
+
+                        context.SaveChanges();
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Error editing account.", e);
+            }
+        }
+
+        public void BanAccount(int accountId)
+        {
+            try
+            {
+                using (var context = new FUExchangeGoodsContext())
+                {
+                    var account = context.Accounts.Find(accountId);
+                    if (account != null)
+                    {
+                        account.Status = 0; // 0 represents banned status
+                        context.SaveChanges();
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Error banning account.", e);
+            }
+        }
+        public void ActiveAccount(int accountId)
+        {
+            try
+            {
+                using (var context = new FUExchangeGoodsContext())
+                {
+                    var account = context.Accounts.Find(accountId);
+                    if (account != null)
+                    {
+                        account.Status = 1;
+                        context.SaveChanges();
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Error banning account.", e);
+            }
+        }
 
 
 
@@ -70,7 +184,7 @@ namespace DAO
             {
                 using (var MySale = new FUExchangeGoodsContext())
                 {
-                    account = MySale.Accounts.SingleOrDefault(x => x.AccountId == id);
+                    account = MySale.Accounts.Include(x => x.User).SingleOrDefault(x => x.AccountId == id);
                 }
             }
             catch (Exception e)
@@ -78,6 +192,35 @@ namespace DAO
                 throw new Exception(e.Message);
             }
             return account;
+        }
+        public void Update(Account account)
+        {
+            try
+            {
+                using (var context = new FUExchangeGoodsContext())
+                {
+                    var existingAccount = context.Accounts.Include(x => x.User).FirstOrDefault(x => x.AccountId == account.AccountId);
+                    if (existingAccount != null)
+
+                    {
+                        existingAccount.Username = account.Username;
+                        existingAccount.Password = account.Password;
+                        existingAccount.Email = account.Email;
+                        existingAccount.Role = account.Role;
+
+                        // Update related User details
+                        existingAccount.User.FirstName = account.User.FirstName;
+                        existingAccount.User.LastName = account.User.LastName;
+                        existingAccount.User.Address = account.User.Address;
+
+                        context.SaveChanges();
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Error updating account.", e);
+            }
         }
         public Account Get(int id)
         {
@@ -201,7 +344,7 @@ namespace DAO
                             buyer.UserId = user.UserId;
                             MySale.Buyers.Add(buyer);
                         }
-                        else
+                        if (account.Role == 1)
                         {
                             Seller seller = new Seller();
                             seller.UserId = user.UserId;
@@ -223,29 +366,7 @@ namespace DAO
                 throw new Exception(e.Message);
             }
         }
-        public void Update(Account account)
-        {
-            try
-            {
-                Account p = Get(account.AccountId);
-                if (p != null)
-                {
-                    using (var MySale = new FUExchangeGoodsContext())
-                    {
-                        MySale.Entry<Account>(account).State = EntityState.Modified;
-                        MySale.SaveChanges();
-                    }
-                }
-                else
-                {
-                    throw new Exception("The account does not exist");
-                }
-            }
-            catch (Exception e)
-            {
-                throw new Exception(e.Message);
-            }
-        }
+        
 
     }
 }

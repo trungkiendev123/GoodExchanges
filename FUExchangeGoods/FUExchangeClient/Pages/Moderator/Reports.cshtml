@@ -1,0 +1,30 @@
+﻿@page
+@model FUExchangeClient.Pages.Moderator.ReportsModel
+@{
+}
+<h1>List of Reports</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Buyer</th>
+            <th>Seller</th>
+            <th>Description</th>
+            <th>Report Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var report in Model.Reports)
+        {
+            <tr>
+                <td>@(report.Buyer != null ? (report.Buyer.User.FirstName + report.Buyer.User.LastName) : "-")</td>
+                <td>@(report.Seller != null ? (report.Seller.User.FirstName + report.Seller.User.LastName) : "-")</td>
+                <td>@report.Description</td>
+                <td>@report.ReportDate</td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+
+

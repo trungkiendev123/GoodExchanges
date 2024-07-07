@@ -20,5 +20,9 @@ namespace Repository
         {
            return OrderDAO.Instance.GetOrdersByUserId(userId);
         }
+        public int getTransactionByStatus(int status)
+        {
+            return OrderDAO.Instance.getTransactionByStatus(status);
+        }
     }
 }

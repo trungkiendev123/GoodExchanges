@@ -9,6 +9,13 @@ namespace Service
 {
     public interface IAccountService
     {
+        public void Update(Account account);
+        List<Account> GetAllAccounts();
+        List<Account> GetActiveAccounts();
+        List<Account> GetBannedAccounts();
+        void EditAccount(Account account);
+        void BanAccount(int accountId);
+        void ActiveAccount(int accountId);
         Account getByNameAndPass(string username, string password);
         Account getByName(string username);
 
@@ -18,8 +25,6 @@ namespace Service
 
         public Account GetByID(int id);
 
-
-        public void Update(Account account);
 
         List<Account> ListAdmin();
 

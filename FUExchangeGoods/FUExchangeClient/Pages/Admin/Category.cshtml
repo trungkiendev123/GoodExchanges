@@ -1,0 +1,39 @@
+﻿@page
+@model FUExchangeClient.Pages.Admin.CategoryModel
+@{
+}
+<h1>Categories</h1>
+
+<p>
+    <a asp-page="CreateCategory" class="btn btn-primary">Create New Category</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Categories[0].CategoryId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Categories[0].CategoryName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Categories)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CategoryId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CategoryName)
+                </td>
+                <td>
+                    <a asp-page="EditCategory" asp-route-id="@item.CategoryId" class="btn btn-warning">Edit</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

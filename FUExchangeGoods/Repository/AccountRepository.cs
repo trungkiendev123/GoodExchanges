@@ -10,6 +10,35 @@ namespace Repository
 {
     public class AccountRepository : IAccountRepository
     {
+        public void Update(Account account) => AccountDAO.Instance.Update(account);
+        public List<Account> GetAllAccounts()
+        {
+            return AccountDAO.Instance.GetAllAccounts();
+        }
+
+        public List<Account> GetActiveAccounts()
+        {
+            return AccountDAO.Instance.GetActiveAccounts();
+        }
+
+        public List<Account> GetBannedAccounts()
+        {
+            return AccountDAO.Instance.GetBannedAccounts();
+        }
+
+        public void EditAccount(Account account)
+        {
+            AccountDAO.Instance.EditAccount(account);
+        }
+        public void ActiveAccount(int accountId)
+        {
+            AccountDAO.Instance.ActiveAccount(accountId);
+        }
+
+        public void BanAccount(int accountId)
+        {
+            AccountDAO.Instance.BanAccount(accountId);
+        }
         public Account getByNameAndPass(string username, string password) => AccountDAO.Instance.GetByNameAndPassword(username, password);
 
         public Account getByName(string username) => AccountDAO.Instance.GetByName(username);
@@ -22,8 +51,6 @@ namespace Repository
 
         public void Add(Account account,User user) => AccountDAO.Instance.Add(account, user);
 
-
-        public void Update(Account account) => AccountDAO.Instance.Update(account);
 
         public Buyer GetBuyerByUserID(int id) => AccountDAO.Instance.GetBuyerByUserID(id);
 

@@ -3,6 +3,7 @@ using Models.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -36,7 +37,7 @@ namespace DAO
             {
                 using (var context = new FUExchangeGoodsContext()) 
                 {
-                    products = context.Products.ToList();
+                    products = context.Products.Where(x => x.Status == 1).ToList();
                 }
             }
             catch (Exception ex)
@@ -69,7 +70,7 @@ namespace DAO
             {
                 using (var context = new FUExchangeGoodsContext()) 
                 {
-                    products = context.Products.Where(p => p.CategoryId == categoryId).ToList();
+                    products = context.Products.Where(p => p.CategoryId == categoryId && p.Status == 1).ToList();
                 }
             }
             catch (Exception ex)
@@ -96,6 +97,125 @@ namespace DAO
                 throw new Exception("Error retrieving product by ID from database.", ex);
             }
             return product;
+        }
+        public List<Product> GetAllProducts(int pageIndex, int pageSize)
+        {
+            List<Product> products = null;
+            try
+            {
+                using (var context = new FUExchangeGoodsContext())
+                {
+                    products = context.Products.Include(p => p.Seller).ThenInclude(x => x.User).Include(p => p.Category)
+                        .Skip((pageIndex - 1) * pageSize).Take(pageSize).ToList();
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Error retrieving all products.", e);
+            }
+            return products;
+        }
+
+       
+
+        public void AddProduct(Product product)
+        {
+            try
+            {
+                using (var context = new FUExchangeGoodsContext())
+                {
+                    context.Products.Add(product);
+                    context.SaveChanges();
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Error adding product.", e);
+            }
+        }
+
+        public void UpdateProduct(Product product)
+        {
+            try
+            {
+                using (var context = new FUExchangeGoodsContext())
+                {
+                    context.Products.Update(product);
+                    context.SaveChanges();
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Error updating product.", e);
+            }
+        }
+
+        public void ChangeProductStatus(int productId, int status)
+        {
+            try
+            {
+                using (var context = new FUExchangeGoodsContext())
+                {
+                    var product = context.Products.Find(productId);
+                    if (product != null)
+                    {
+                        product.Status = status;
+                        context.SaveChanges();
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Error changing product status.", e);
+            }
+        }
+        public Category GetCategoryById(int id)
+        {
+            Category category = null;
+            try
+            {
+                using (var context = new FUExchangeGoodsContext())
+                {
+                    category = context.Categories.Find(id);
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Error retrieving category.", e);
+            }
+            return category;
+        }
+
+        public void AddCategory(Category category)
+        {
+            try
+            {
+                using (var context = new FUExchangeGoodsContext())
+                {
+                    context.Categories.Add(category);
+                    context.SaveChanges();
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Error adding category.", e);
+            }
+        }
+
+        public void UpdateCategory(Category category)
+        {
+            try
+            {
+                using (var context = new FUExchangeGoodsContext())
+                {
+                    context.Categories.Update(category);
+                    context.SaveChanges();
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Error updating category.", e);
+            }
         }
     }
 }

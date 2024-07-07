@@ -1,4 +1,5 @@
-﻿using Models.Models;
+﻿using DAO;
+using Models.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,13 @@ namespace Repository
 {
     public interface IAccountRepository
     {
+        public void Update(Account account);
+        List<Account> GetAllAccounts();
+        List<Account> GetActiveAccounts();
+        List<Account> GetBannedAccounts();
+        void EditAccount(Account account);
+        void BanAccount(int accountId);
+        void ActiveAccount(int accountId);
         Account getByNameAndPass(string username, string password);
 
         Account getByName(string username);
@@ -18,7 +26,6 @@ namespace Repository
         Account Get(int id);
 
         void Add(Account account, User user);
-        void Update(Account account);
 
         List<Account> ListAdmin();
 
