@@ -42,5 +42,14 @@ namespace Service
         {
             return _repository.GetBuyerByUserID(id);
         }
+
+        public List<User> ListSeller()
+        {
+            return _repository.ListSeller();
+        }
+        public User GetUser(int id)
+        {
+            return _repository.GetUser(id);
+        }
     }
 }

@@ -26,5 +26,8 @@ namespace Repository
         public void Update(Account account) => AccountDAO.Instance.Update(account);
 
         public Buyer GetBuyerByUserID(int id) => AccountDAO.Instance.GetBuyerByUserID(id);
+
+        public List<User> ListSeller() => AccountDAO.Instance.ListSeller();
+        public User GetUser(int id) => AccountDAO.Instance.GetUser(id);
     }
 }

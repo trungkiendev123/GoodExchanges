@@ -8,11 +8,13 @@ namespace FUExchangeClient.Pages.Buyer
 {
     public class ShowOrderModel : PageModel
     {
-        private readonly IOrderService _orderService; 
+        private readonly IOrderService _orderService;
+        private readonly IContactService _contactService;
 
-        public ShowOrderModel(IOrderService orderService)
+        public ShowOrderModel(IOrderService orderService, IContactService contactService)
         {
             _orderService = orderService;
+            _contactService = contactService;
         }
 
         public List<Order> Orders { get; set; }
@@ -32,6 +34,7 @@ namespace FUExchangeClient.Pages.Buyer
             Orders = _orderService.GetOrdersByUserId(buyerId);
             return Page();
         }
+        
 
     }
 }

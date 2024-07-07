@@ -7,6 +7,7 @@ namespace Models.Models
     {
         public Product()
         {
+            CartItems = new HashSet<CartItem>();
             Transactions = new HashSet<Transaction>();
         }
 
@@ -22,8 +23,8 @@ namespace Models.Models
 
         public virtual Category? Category { get; set; }
         public virtual Seller? Seller { get; set; }
-        public virtual CartItem? CartItem { get; set; }
         public virtual Order? Order { get; set; }
+        public virtual ICollection<CartItem> CartItems { get; set; }
         public virtual ICollection<Transaction> Transactions { get; set; }
     }
 }

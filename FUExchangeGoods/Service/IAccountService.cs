@@ -24,5 +24,8 @@ namespace Service
         List<Account> ListAdmin();
 
         public Buyer GetBuyerByUserID(int id);
+
+        public List<User> ListSeller();
+        public User GetUser(int id);
     }
 }

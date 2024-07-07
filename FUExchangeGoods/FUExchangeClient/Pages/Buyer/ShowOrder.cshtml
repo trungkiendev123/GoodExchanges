@@ -6,38 +6,68 @@
 
 <h2>Your Orders</h2>
 
-@if (Model.Orders != null && Model.Orders.Count > 0)
-{
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Product Image</th>
-                <th>Quantity</th>
-                <th>Unit Price</th>
-                <th>Total Price</th>
-                <th>Seller</th>
-                <th>Status</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var order in Model.Orders)
+<div class="container">
+    <div class="row">
+        <div class="col-md-9">
+            @if (Model.Orders != null && Model.Orders.Count > 0)
             {
-                <tr>
-                    <td><img src="@order.Product.Image" style="width: 100px; height: 100px;" /></td>
-                    <td>@order.Quantity</td>
-                    <td>@order.Product.Price</td>
-                    <td>@(order.Quantity * order.Product.Price)</td>
-                    <td>@order.Seller.User.FirstName @order.Seller.User.LastName</td>
-                    <td>@GetStatusText((int)order.Transaction.Status)</td>
-                </tr>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Product Image</th>
+                            <th>Quantity</th>
+                            <th>Unit Price</th>
+                            <th>Total Price</th>
+                            <th>Seller</th>
+                            <th>Status</th>
+                           
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var order in Model.Orders)
+                        {
+                            <tr>
+                                <td><img src="@order.Product.Image" style="width: 100px; height: 100px;" /></td>
+                                <td>@order.Quantity</td>
+                                <td>@order.Product.Price</td>
+                                <td>@(order.Quantity * order.Product.Price)</td>
+                                <td>@order.Product.Seller.User.FirstName @order.Product.Seller.User.LastName</td>
+                                <td>@GetStatusText((int)order.Transaction.Status)</td>
+                              
+                            </tr>
+                        }
+                    </tbody>
+                </table>
             }
-        </tbody>
-    </table>
-}
-else
-{
-    <p>You haven't placed any orders yet.</p>
-}
+            else
+            {
+                <p>You haven't placed any orders yet.</p>
+            }
+        </div>
+        <div class="col-md-3">
+            <div id="chat-box" style="display: none;">
+                <div class="card">
+                    <div class="card-header">
+                        Chat with Seller
+                    </div>
+                    <div class="card-body">
+                        <div id="chat-messages" style="height: 300px; overflow-y: scroll;">
+                            <!-- Messages will be loaded here dynamically -->
+                        </div>
+                        <div class="input-group mt-3">
+                            <input type="text" id="chat-input" class="form-control" placeholder="Type a message">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" id="send-message-btn">Send</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 
 @functions {
     public string GetStatusText(int status)

@@ -73,9 +73,6 @@ namespace Models.Models
             {
                 entity.ToTable("CartItem");
 
-                entity.HasIndex(e => e.ProductId, "UQ__CartItem__B40CC6EC969D513D")
-                    .IsUnique();
-
                 entity.Property(e => e.CartItemId).HasColumnName("CartItemID");
 
                 entity.Property(e => e.CartId).HasColumnName("CartID");
@@ -88,9 +85,9 @@ namespace Models.Models
                     .HasConstraintName("FK__CartItem__CartID__534D60F1");
 
                 entity.HasOne(d => d.Product)
-                    .WithOne(p => p.CartItem)
-                    .HasForeignKey<CartItem>(d => d.ProductId)
-                    .HasConstraintName("FK__CartItem__Produc__52593CB8");
+                    .WithMany(p => p.CartItems)
+                    .HasForeignKey(d => d.ProductId)
+                    .HasConstraintName("FK__CartItem__Produc__01142BA1");
             });
 
             modelBuilder.Entity<Category>(entity =>
@@ -105,8 +102,6 @@ namespace Models.Models
                 entity.ToTable("Contact");
 
                 entity.Property(e => e.Id).HasColumnName("id");
-
-                entity.Property(e => e.Message).HasColumnType("text");
 
                 entity.HasOne(d => d.UserSendNavigation)
                     .WithMany(p => p.Contacts)

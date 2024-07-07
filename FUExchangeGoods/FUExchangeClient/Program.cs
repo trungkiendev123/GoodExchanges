@@ -10,6 +10,7 @@ builder.Services.AddDbContext<FUExchangeGoodsContext>(option => option.UseSqlSer
 builder.Services.AddScoped<FUExchangeGoodsContext>();
 builder.Services.AddScoped<IProductService,ProductService>();
 builder.Services.AddScoped<IAccountService, AccountService>();
+builder.Services.AddScoped<IContactService, ContactService>();
 builder.Services.AddScoped<ICartService, CartService>();
 builder.Services.AddScoped<IOrderService, OrderService>();
 builder.Services.AddSession(options =>

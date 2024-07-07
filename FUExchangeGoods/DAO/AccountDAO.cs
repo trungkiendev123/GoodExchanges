@@ -95,6 +95,23 @@ namespace DAO
             }
             return account;
         }
+        
+        public User GetUser(int id)
+        {
+            User account = null;
+            try
+            {
+                using (var MySale = new FUExchangeGoodsContext())
+                {
+                    account = MySale.Users.SingleOrDefault(x => x.UserId == id);
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+            return account;
+        }
         public Buyer GetBuyerByUserID(int id)
         {
             Buyer buyer = null;
@@ -111,7 +128,41 @@ namespace DAO
             }
             return buyer;
         }
+        public Seller GetSellerByUserID(int id)
+        {
+            Seller seller = null;
+            try
+            {
+                using (var MySale = new FUExchangeGoodsContext())
+                {
+                    seller = MySale.Sellers.SingleOrDefault(x => x.UserId == id);
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+            return seller;
+        }
 
+        public List<User> ListSeller()
+        {
+            List<User> accounts;
+            try
+            {
+
+                using (var MySale = new FUExchangeGoodsContext())
+                {
+                    accounts = MySale.Users.Include(x => x.Account).Where(x => x.Account.Role == 1).ToList();
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+            return accounts;
+
+        }
         public List<Account> ListAdmin()
         {
             List<Account> accounts;
