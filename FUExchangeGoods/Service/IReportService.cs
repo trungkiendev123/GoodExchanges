@@ -10,5 +10,6 @@ namespace Service
     public interface IReportService
     {
         List<Report> GetAllReports();
+        public void AddReport(Report report);
     }
 }

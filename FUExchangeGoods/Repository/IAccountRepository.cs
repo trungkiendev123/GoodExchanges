@@ -30,8 +30,10 @@ namespace Repository
         List<Account> ListAdmin();
 
         public Buyer GetBuyerByUserID(int id);
+        public Seller GetSellerByUserID(int id);
 
         public List<User> ListSeller();
+        public List<User> ListBuyer();
         public User GetUser(int id);
     }
 }

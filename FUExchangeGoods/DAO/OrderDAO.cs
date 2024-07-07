@@ -28,6 +28,46 @@ namespace DAO
                 }
             }
         }
+        public List<Transaction> GetSellerTransactions(int sellerId)
+        {
+            List<Transaction> transactions = null;
+            try
+            {
+                using (var context = new FUExchangeGoodsContext())
+                {
+                    transactions = context.Transactions
+                        .Include(t => t.Buyer).ThenInclude(x => x.User)
+                        .Include(t => t.Product)
+                        .Where(t => t.SellerId == sellerId)
+                        .ToList();
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Error retrieving seller transactions.", e);
+            }
+            return transactions;
+        }
+
+        public void UpdateTransactionStatus(int transactionId, int newStatus)
+        {
+            try
+            {
+                using (var context = new FUExchangeGoodsContext())
+                {
+                    var transaction = context.Transactions.Find(transactionId);
+                    if (transaction != null)
+                    {
+                        transaction.Status = newStatus;
+                        context.SaveChanges();
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Error updating transaction status.", e);
+            }
+        }
 
         public int getTransactionByStatus(int status)
         {

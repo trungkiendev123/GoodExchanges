@@ -1,0 +1,53 @@
+﻿@page
+@model FUExchangeClient.Pages.Seller.SellerProductsModel
+@{
+}
+<h1>Products</h1>
+
+<a asp-page="./SellerAddProduct" class="btn btn-primary">Create New Product</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Seller Name</th>
+            <th>Image</th>
+            <th>Category</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Date Posted</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model.Products)
+        {
+            <tr>
+                <td>@product.Seller.User.FirstName  @product.Seller.User.LastName</td>
+                <td><img src="@product.Image" alt="@product.Description" width="100" /></td>
+                <td>@product.Category?.CategoryName</td>
+                <td>@product.Quantity</td>
+                <td>@product.Price</td>
+                <td>@product.DatePosted</td>
+                <td>@(product.Status == 1 ? "Active" : "Banned")</td>
+                <td>
+                    <a asp-page="./SellerEditProduct" asp-route-id="@product.ProductId" class="btn btn-secondary">Edit</a>
+                    <form method="post" asp-page-handler="ChangeStatus" asp-route-id="@product.ProductId" style="display:inline;">
+                        <button type="submit" class="btn btn-warning">@((product.Status == 1) ? "Ban" : "Activate")</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div>
+    @if (Model.HasPreviousPage)
+    {
+        <a asp-page="./SellerProducts" asp-route-pageIndex="@(Model.PageIndex - 1)">Previous</a>
+    }
+    @if (Model.HasNextPage)
+    {
+        <a asp-page="./SellerProducts" asp-route-pageIndex="@(Model.PageIndex + 1)">Next</a>
+    }
+</div>

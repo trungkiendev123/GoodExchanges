@@ -23,5 +23,6 @@ namespace Service
         Category GetCategoryById(int id);
         void AddCategory(Category category);
         void UpdateCategory(Category category);
+        public List<Product> GetAllProductsSeller(int sellerID, int pageIndex, int pageSize);
     }
 }

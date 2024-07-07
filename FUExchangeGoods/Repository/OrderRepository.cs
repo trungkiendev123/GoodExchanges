@@ -24,5 +24,8 @@ namespace Repository
         {
             return OrderDAO.Instance.getTransactionByStatus(status);
         }
+        public List<Transaction> GetSellerTransactions(int sellerId) => OrderDAO.Instance.GetSellerTransactions(sellerId);
+
+        public void UpdateTransactionStatus(int transactionId, int newStatus) => OrderDAO.Instance.UpdateTransactionStatus(transactionId, newStatus);
     }
 }

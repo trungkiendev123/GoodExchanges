@@ -14,5 +14,9 @@ namespace Repository
         {
             return ReportDAO.Instance.GetAllReports();
         }
+        public void AddReport(Report report)
+        {
+            ReportDAO.Instance.AddReport(report);
+        }
     }
 }

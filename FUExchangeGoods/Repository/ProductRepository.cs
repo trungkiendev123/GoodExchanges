@@ -35,5 +35,9 @@ namespace Repository
         public void AddProduct(Product product) => ProductDAO.Instance.AddProduct(product);
         public void UpdateProduct(Product product) => ProductDAO.Instance.UpdateProduct(product);
         public void ChangeProductStatus(int productId, int status) => ProductDAO.Instance.ChangeProductStatus(productId, status);
+        public List<Product> GetAllProductsSeller(int sellerID, int pageIndex, int pageSize)
+        {
+            return ProductDAO.Instance.GetAllProductsSeller(sellerID, pageIndex, pageSize);
+        }
     }
 }

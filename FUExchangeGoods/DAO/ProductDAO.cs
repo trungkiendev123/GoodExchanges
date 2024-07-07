@@ -46,6 +46,24 @@ namespace DAO
             }
             return products;
         }
+        public List<Product> GetAllProductsSeller(int sellerID,int pageIndex, int pageSize)
+        {
+            List<Product> products = null;
+            try
+            {
+                using (var context = new FUExchangeGoodsContext())
+                {
+                    products = context.Products.Include(p => p.Seller).ThenInclude(x => x.User).Include(p => p.Category)
+                        .Skip((pageIndex - 1) * pageSize).Take(pageSize).Where(x => x.SellerId == sellerID).ToList();
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Error retrieving all products.", e);
+            }
+            return products;
+        }
+       
         public List<Category> GetAllCategory()
         {
             List<Category> cates = new List<Category>();

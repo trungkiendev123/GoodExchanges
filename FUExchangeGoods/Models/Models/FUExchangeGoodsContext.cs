@@ -186,6 +186,8 @@ namespace Models.Models
 
                 entity.Property(e => e.ReportDate).HasColumnType("date");
 
+                entity.Property(e => e.RoleReport).HasColumnName("roleReport");
+
                 entity.Property(e => e.SellerId).HasColumnName("SellerID");
 
                 entity.HasOne(d => d.Buyer)

@@ -1,0 +1,35 @@
+﻿@page
+@model FUExchangeClient.Pages.Seller.SellerAddProductModel
+@{
+}
+<h1>Create Product</h1>
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="Product.Description"></label>
+        <input asp-for="Product.Description" class="form-control" required />
+        <span asp-validation-for="Product.Description" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Product.Price"></label>
+        <input asp-for="Product.Price" class="form-control" required />
+        <span asp-validation-for="Product.Price" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Product.Quantity"></label>
+        <input asp-for="Product.Quantity" class="form-control" required />
+        <span asp-validation-for="Product.Quantity" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Product.CategoryId"></label>
+        <select asp-for="Product.CategoryId" asp-items="Model.Categories" class="form-control" required></select>
+        <span asp-validation-for="Product.CategoryId" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Product.Image"></label>
+        <input asp-for="Product.Image" class="form-control" />
+        <span asp-validation-for="Product.Image" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Create</button>
+    <a asp-page="./SellerProducts" class="btn btn-secondary">Back to List</a>
+</form>

@@ -16,5 +16,6 @@ namespace Service
         void DeleteCartItem(int cartItemId);
 
         CartItem GetCartItemById(int cartItemId);
+        public CartItem GetCartItemByProductID(int productID, int userID);
     }
 }

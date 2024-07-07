@@ -66,6 +66,25 @@ namespace DAO
             }
             return cartItems;
         }
+        public CartItem GetCartItemByProductID(int productID,int userID)
+        {
+           
+            try
+            {
+                using (var context = new FUExchangeGoodsContext())
+                {
+                    return context.CartItems
+                        .Include(c => c.Product).ThenInclude(x => x.Seller)
+                        .Include(c => c.Cart)
+                        .FirstOrDefault(c => c.Cart.UserId == userID && c.ProductId == productID);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error retrieving cart items from database.", ex);
+            }
+            return null;
+        }
 
         public void AddCartItem(int userId, int productId, int quantity)
         {

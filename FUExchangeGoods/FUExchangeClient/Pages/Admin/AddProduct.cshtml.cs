@@ -23,14 +23,33 @@ namespace FUExchangeClient.Pages.Admin
         public SelectList Categories { get; set; }
         public List<User> Sellers { get; set; }
 
-        public void OnGet()
+        public IActionResult OnGet()
         {
+            if (HttpContext.Session.GetInt32("user_id") == null)
+            {
+                return RedirectToPage("/Login");
+            }
+
+            if (HttpContext.Session.GetInt32("role") != 2)
+            {
+                return RedirectToPage("/AccessDenied");
+            }
             Categories = new SelectList(_productService.GetAllCategory(), "CategoryId", "CategoryName");
             Sellers = _accountService.ListSeller();
+            return Page();
         }
 
         public IActionResult OnPost()
         {
+            if (HttpContext.Session.GetInt32("user_id") == null)
+            {
+                return RedirectToPage("/Login");
+            }
+
+            if (HttpContext.Session.GetInt32("role") != 2)
+            {
+                return RedirectToPage("/AccessDenied");
+            }
             if (!ModelState.IsValid)
             {
                 Categories = new SelectList(_productService.GetAllCategory(), "CategoryId", "CategoryName");

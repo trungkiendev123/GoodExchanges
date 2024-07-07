@@ -37,9 +37,16 @@ namespace FUExchangeClient.Pages.Guest
             {
                 return RedirectToPage("/AccessDenied");
             }
-
-            _cartService.AddCartItem(HttpContext.Session.GetInt32("user_id").Value, productId, quantity);
-            TempData["SuccessMessage"] = "Product added to cart successfully!";
+            if(_cartService.GetCartItemByProductID(productId, HttpContext.Session.GetInt32("user_id").Value) != null)
+            {
+                TempData["SuccessMessage"] = "Product already in cart.Cannot add";
+            }
+            else
+            {
+                _cartService.AddCartItem(HttpContext.Session.GetInt32("user_id").Value, productId, quantity);
+                TempData["SuccessMessage"] = "Product added to cart successfully!";
+            }
+           
             return RedirectToPage("/Guest/ProductDetail", new { id = productId });
         }
     }

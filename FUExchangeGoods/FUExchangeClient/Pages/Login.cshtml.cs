@@ -57,6 +57,10 @@ namespace FUExchangeClient.Pages
                 {
                     return RedirectToPage("/Moderator/Reports");
                 }
+                if (account.Role == 1)
+                {
+                    return RedirectToPage("/Seller/SellerProducts");
+                }
                 else
                 {
                     return Redirect("/Error");

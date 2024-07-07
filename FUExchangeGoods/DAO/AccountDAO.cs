@@ -306,6 +306,24 @@ namespace DAO
             return accounts;
 
         }
+        public List<User> ListBuyer()
+        {
+            List<User> accounts;
+            try
+            {
+
+                using (var MySale = new FUExchangeGoodsContext())
+                {
+                    accounts = MySale.Users.Include(x => x.Account).Where(x => x.Account.Role == 0).ToList();
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+            return accounts;
+
+        }
         public List<Account> ListAdmin()
         {
             List<Account> accounts;

@@ -1,0 +1,117 @@
+﻿@page
+@model FUExchangeClient.Pages.Seller.SellerContactModel
+@{
+}
+<h2>Contact Buyer</h2>
+
+<div class="contact-container">
+    <div class="seller-list">
+        <h3>Buyers</h3>
+        <ul>
+            @foreach (var buyer in Model.Buyers)
+            {
+                    <li>
+                    <a asp-page="./SellerContact" asp-route-buyerId="@buyer.UserId">@buyer.FirstName @buyer.LastName</a>
+                    </li>
+            }
+        </ul>
+    </div>
+
+    <div class="chat-box">
+        <h3>Chat with @Model.SelectedBuyer?.FirstName @Model.SelectedBuyer?.LastName</h3>
+
+        <div class="messages">
+            @if (Model.Messages != null && Model.Messages.Count > 0)
+            {
+                @foreach (var message in Model.Messages)
+                {
+                            <div class="message @(message.UserSend == Model.UserId ? "sent" : "received")">
+                        @message.Message
+                            </div>
+                }
+            }
+            else
+            {
+                    <p>No messages yet.</p>
+            }
+        </div>
+
+        <form method="post">
+            <input type="hidden" name="buyerId" value="@Model.SelectedBuyer?.UserId" />
+            <textarea name="message" rows="3" placeholder="Type your message here..."></textarea>
+            <button type="submit">Send</button>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+        <script>
+            // Automatically scroll to the bottom of the chat box
+            document.addEventListener("DOMContentLoaded", function () {
+                var chatBox = document.querySelector(".messages");
+                chatBox.scrollTop = chatBox.scrollHeight;
+            });
+        </script>
+}
+
+<style>
+    .contact-container {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .seller-list {
+        width: 25%;
+        border-right: 1px solid #ccc;
+        padding-right: 20px;
+    }
+
+    .chat-box {
+        width: 70%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .messages {
+        flex: 1;
+        overflow-y: auto;
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin-bottom: 10px;
+        max-height: 400px; /* Set a fixed height for the chat box */
+    }
+
+    .message {
+        padding: 5px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+    }
+
+    .sent {
+        background-color: #d1e7dd;
+        align-self: flex-end;
+        text-align: right;
+    }
+
+    .received {
+        background-color: #f8d7da;
+        align-self: flex-start;
+        text-align: left;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    textarea {
+        resize: none;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+
+    button {
+        align-self: flex-end;
+        padding: 10px 20px;
+    }
+</style>

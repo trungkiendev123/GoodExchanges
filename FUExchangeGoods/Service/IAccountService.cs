@@ -27,8 +27,10 @@ namespace Service
 
 
         List<Account> ListAdmin();
+        public List<User> ListBuyer();
 
         public Buyer GetBuyerByUserID(int id);
+        public Seller GetSellerByUserID(int id);
 
         public List<User> ListSeller();
         public User GetUser(int id);

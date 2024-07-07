@@ -9,6 +9,8 @@
         <tr>
             <th>Buyer</th>
             <th>Seller</th>
+            <th>Report From</th>
+            <th>Report To</th>
             <th>Description</th>
             <th>Report Date</th>
         </tr>
@@ -19,6 +21,26 @@
             <tr>
                 <td>@(report.Buyer != null ? (report.Buyer.User.FirstName + report.Buyer.User.LastName) : "-")</td>
                 <td>@(report.Seller != null ? (report.Seller.User.FirstName + report.Seller.User.LastName) : "-")</td>
+                <td>
+                    @if(report.RoleReport == 0)
+                    {
+                        <span>Buyer</span>
+                     }
+                    else
+                    {
+                        <span>Seller</span>
+                    }
+                </td>
+                <td>
+                    @if(report.RoleReport == 1)
+                    {
+                        <span>Buyer</span>
+                    }
+                    else
+                    {
+                        <span>Seller</span>
+                    }
+                </td>
                 <td>@report.Description</td>
                 <td>@report.ReportDate</td>
 

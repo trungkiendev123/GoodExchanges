@@ -1,0 +1,82 @@
+﻿@page
+@model FUExchangeClient.Pages.Seller.SellerTransactionsModel
+@{
+}
+<h1>Seller Transactions</h1>
+
+<p>Welcome, @User.Identity.Name!</p>
+
+@if (Model.Transactions != null && Model.Transactions.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Transaction ID</th>
+                <th>Buyer</th>
+                <th>Product</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var transaction in Model.Transactions)
+            {
+                <tr>
+                    <td>@transaction.TransactionId</td>
+                    <td>@transaction.Buyer.User.FirstName  @transaction.Buyer.User.LastName</td>
+                    <td>@transaction.Product.Description</td>
+                    <td>@GetStatusText(transaction.Status)</td>
+                    <td>
+                        @if (transaction.Status == 0)
+                        {
+                            <form method="post">
+                                <input type="hidden" name="transactionId" value="@transaction.TransactionId" />
+                                <button type="submit" name="handler" value="Cancel" class="btn btn-danger">Cancel</button>
+                                <button type="submit" name="handler" value="Ship" class="btn btn-primary">Ship</button>
+                            </form>
+                        }
+                        else if (transaction.Status == 1)
+                        {
+                            <form method="post">
+                                <input type="hidden" name="transactionId" value="@transaction.TransactionId" />
+                                <button type="submit" name="handler" value="Cancel" class="btn btn-danger">Cancel</button>
+                                <button type="submit" name="handler" value="Complete" class="btn btn-success">Complete</button>
+                            </form>
+                        }
+                        else
+                        {
+                            <span>No actions available</span>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No transactions found.</p>
+}
+
+@if (Model.ModelState.ErrorCount > 0)
+{
+    <div class="alert alert-danger">
+        <ul>
+            @foreach (var error in Model.ModelState.Values.SelectMany(v => v.Errors))
+            {
+                <li>@error.ErrorMessage</li>
+            }
+        </ul>
+    </div>
+}
+
+@functions {
+    private string GetStatusText(int? status)
+    {
+        if (status == 0) return "Pending";
+        if (status == 1) return "Shipping";
+        if (status == 2) return "Done";
+        if (status == 3) return "Cancel";
+        return "Unknown";
+    }
+}

@@ -20,14 +20,33 @@ namespace FUExchangeClient.Pages.Admin
 
         public SelectList Categories { get; set; }
 
-        public void OnGet(int id)
+        public IActionResult OnGet(int id)
         {
+            if (HttpContext.Session.GetInt32("user_id") == null)
+            {
+                return RedirectToPage("/Login");
+            }
+
+            if (HttpContext.Session.GetInt32("role") != 2)
+            {
+                return RedirectToPage("/AccessDenied");
+            }
             Product = _productService.GetProductById(id);
             Categories = new SelectList(_productService.GetAllCategory(), "CategoryId", "CategoryName");
+            return Page();
         }
 
         public IActionResult OnPost()
         {
+            if (HttpContext.Session.GetInt32("user_id") == null)
+            {
+                return RedirectToPage("/Login");
+            }
+
+            if (HttpContext.Session.GetInt32("role") != 2)
+            {
+                return RedirectToPage("/AccessDenied");
+            }
             if (!ModelState.IsValid)
             {
                 Categories = new SelectList(_productService.GetAllCategory(), "CategoryId", "CategoryName");

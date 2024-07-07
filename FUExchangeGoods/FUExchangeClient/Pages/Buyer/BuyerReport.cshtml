@@ -1,0 +1,25 @@
+﻿@page
+@model FUExchangeClient.Pages.Buyer.BuyerReportModel
+@{
+}
+<h1>Add Report</h1>
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="Report.Description"></label>
+        <input asp-for="Report.Description" class="form-control" />
+        <span asp-validation-for="Report.Description" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Report.BuyerId"></label>
+        <select asp-for="@Model.userID" class="form-control">
+            @foreach (var item in Model.Sellers)
+            {
+                    <option value="@item.UserId">@item.FirstName  @item.LastName</option>
+            }
+        </select>
+        <span asp-validation-for="Report.SellerId" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <a asp-page="./BuyerReport" class="btn btn-secondary">Back to List</a>
+</form>

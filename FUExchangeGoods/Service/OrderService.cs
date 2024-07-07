@@ -30,5 +30,8 @@ namespace Service
         {
             return _repository.getTransactionByStatus(status);
         }
+        public List<Transaction> GetSellerTransactions(int sellerId) => _repository.GetSellerTransactions(sellerId);
+
+        public void UpdateTransactionStatus(int transactionId, int newStatus) => _repository.UpdateTransactionStatus(transactionId, newStatus);
     }
 }

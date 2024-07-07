@@ -20,6 +20,7 @@ namespace Repository
         void AddProduct(Product product);
         void UpdateProduct(Product product);
         void ChangeProductStatus(int productId, int status);
+        public List<Product> GetAllProductsSeller(int sellerID, int pageIndex, int pageSize);
 
     }
 }

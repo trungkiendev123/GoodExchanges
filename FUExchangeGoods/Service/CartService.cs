@@ -47,5 +47,10 @@ namespace Service
         {
             return _repository.GetCartItemById(cartItemId);
         }
+
+        public CartItem GetCartItemByProductID(int productID, int userID)
+        {
+            return _repository.GetCartItemByProductID(productID, userID);
+        }
     }
 }

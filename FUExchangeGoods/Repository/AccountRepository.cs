@@ -53,8 +53,10 @@ namespace Repository
 
 
         public Buyer GetBuyerByUserID(int id) => AccountDAO.Instance.GetBuyerByUserID(id);
+        public Seller GetSellerByUserID(int id) => AccountDAO.Instance.GetSellerByUserID(id);
 
         public List<User> ListSeller() => AccountDAO.Instance.ListSeller();
+        public List<User> ListBuyer() => AccountDAO.Instance.ListBuyer();
         public User GetUser(int id) => AccountDAO.Instance.GetUser(id);
     }
 }

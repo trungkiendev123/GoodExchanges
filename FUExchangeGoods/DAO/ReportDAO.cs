@@ -46,5 +46,20 @@ namespace DAO
             }
             return reports;
         }
+        public void AddReport(Report report)
+        {
+            try
+            {
+                using (var context = new FUExchangeGoodsContext())
+                {
+                    context.Reports.Add(report);
+                    context.SaveChanges();
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Error adding report.", e);
+            }
+        }
     }
 }

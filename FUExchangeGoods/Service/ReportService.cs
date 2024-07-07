@@ -21,5 +21,9 @@ namespace Service
         {
             return _reportRepository.GetAllReports();
         }
+        public void AddReport(Report report)
+        {
+            _reportRepository.AddReport(report);
+        }
     }
 }

@@ -56,6 +56,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cUHJvZHVjdHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/SHD/Desktop/Goods/GoodExchanges/FUExchangeGoods/FUExchangeClient/Pages/Buyer/BuyerReport.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQnV5ZXJcQnV5ZXJSZXBvcnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/SHD/Desktop/Goods/GoodExchanges/FUExchangeGoods/FUExchangeClient/Pages/Buyer/Contact.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQnV5ZXJcQ29udGFjdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -106,6 +110,30 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/SHD/Desktop/Goods/GoodExchanges/FUExchangeGoods/FUExchangeClient/Pages/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/SHD/Desktop/Goods/GoodExchanges/FUExchangeGoods/FUExchangeClient/Pages/Seller/SellerAddProduct.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2VsbGVyXFNlbGxlckFkZFByb2R1Y3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/SHD/Desktop/Goods/GoodExchanges/FUExchangeGoods/FUExchangeClient/Pages/Seller/SellerContact.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2VsbGVyXFNlbGxlckNvbnRhY3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/SHD/Desktop/Goods/GoodExchanges/FUExchangeGoods/FUExchangeClient/Pages/Seller/SellerEditProduct.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2VsbGVyXFNlbGxlckVkaXRQcm9kdWN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/SHD/Desktop/Goods/GoodExchanges/FUExchangeGoods/FUExchangeClient/Pages/Seller/SellerProducts.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2VsbGVyXFNlbGxlclByb2R1Y3RzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/SHD/Desktop/Goods/GoodExchanges/FUExchangeGoods/FUExchangeClient/Pages/Seller/SellerReport.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2VsbGVyXFNlbGxlclJlcG9ydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/SHD/Desktop/Goods/GoodExchanges/FUExchangeGoods/FUExchangeClient/Pages/Seller/SellerTransactions.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2VsbGVyXFNlbGxlclRyYW5zYWN0aW9ucy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/SHD/Desktop/Goods/GoodExchanges/FUExchangeGoods/FUExchangeClient/Pages/Shared/_ValidationScriptsPartial.cshtml]

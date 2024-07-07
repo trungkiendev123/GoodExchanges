@@ -74,10 +74,17 @@ namespace Service
         {
             return _repository.GetBuyerByUserID(id);
         }
-
+        public Seller GetSellerByUserID(int id)
+        {
+            return _repository.GetSellerByUserID(id);
+        }
         public List<User> ListSeller()
         {
             return _repository.ListSeller();
+        }
+        public List<User> ListBuyer()
+        {
+            return _repository.ListBuyer();
         }
         public User GetUser(int id)
         {

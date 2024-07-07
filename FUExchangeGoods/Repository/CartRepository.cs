@@ -39,5 +39,10 @@ namespace Repository
         {
             return CartDAO.Instance.GetCartItemById(cartItemId);
         }
+
+        public CartItem GetCartItemByProductID(int productID, int userID)
+        {
+            return CartDAO.Instance.GetCartItemByProductID(productID, userID);
+        }
     }
 }

@@ -10,5 +10,6 @@ namespace Repository
     public interface IReportRepository
     {
         List<Report> GetAllReports();
+        public void AddReport(Report report);
     }
 }

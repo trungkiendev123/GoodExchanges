@@ -41,6 +41,7 @@ namespace Service
         public Category GetCategoryById(int id) => _repository.GetCategoryById(id);
         public void AddCategory(Category category) => _repository.AddCategory(category);
         public void UpdateCategory(Category category) => _repository.UpdateCategory(category);
+        public List<Product> GetAllProductsSeller(int sellerID, int pageIndex, int pageSize) => _repository.GetAllProductsSeller(sellerID, pageIndex,pageSize);
     }
 }
 

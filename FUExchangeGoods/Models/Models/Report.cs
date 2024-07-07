@@ -11,6 +11,7 @@ namespace Models.Models
         public string? Description { get; set; }
         public DateTime? ReportDate { get; set; }
         public int? Status { get; set; }
+        public int? RoleReport { get; set; }
 
         public virtual Buyer? Buyer { get; set; }
         public virtual Seller? Seller { get; set; }
